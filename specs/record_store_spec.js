@@ -2,6 +2,7 @@ var RecordStore = require('../record_store');
 var assert = require('assert');
 
 var recordStore;
+var record1;
 
 describe('Record Store', function(){
      beforeEach(function(){
@@ -9,5 +10,8 @@ describe('Record Store', function(){
      });
      it('has a name', function(){
           assert.equal("The Vinyl Frontier", recordStore.name);
+     });
+     it('records', function(){
+          assert.equal(0, recordStore.records.length);
      })
 })
