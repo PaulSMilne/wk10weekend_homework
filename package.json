@@ -18,5 +18,9 @@
   "homepage": "https://github.com/PaulSMilne/wk10weekend_homework#readme",
   "devDependencies": {
     "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "underscore": "^1.8.3"
   }
 }
