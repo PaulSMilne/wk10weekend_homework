@@ -10,6 +10,14 @@ describe('Record', function(){
 
      it('has an artist', function(){
           assert.equal("Jimi Hendrix", record1.artist);
-     })
+     });
+
+     it('has a name', function(){
+          assert.equal("Are You Experienced?", record1.name);
+     });
+
+     it('has a price', function(){
+          assert.equal("25", record1.price);
+     });
 
 })
