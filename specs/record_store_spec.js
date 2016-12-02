@@ -20,6 +20,11 @@ describe('Record Store', function(){
           recordStore.addRecord(AreYouExperienced);
           assert.equal(1, recordStore.inventory.length);
      });
-     it('has a bank balance');
-     it('can display inventory');
+     it('has a bank balance', function(){
+          assert.equal(0, recordStore.bankBalance);
+     });
+     it('can display inventory', function(){
+          var inventory = recordStore.getInventory();
+          assert.equal("Jimi Hendrix, Are You Experienced, 25", inventory);
+     });
 })
