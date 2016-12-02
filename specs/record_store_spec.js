@@ -4,7 +4,8 @@ var assert = require('assert');
 var _ = require('underscore');
 
 var recordStore;
-var record1;
+var AreYouExperienced;
+var BloodOnTheTracks;
 
 describe('Record Store', function(){
      beforeEach(function(){
@@ -22,6 +23,7 @@ describe('Record Store', function(){
           recordStore.addRecord(AreYouExperienced);
           assert.equal(1, recordStore.inventory.length);
      });
+
      it('has a bank balance', function(){
           assert.equal(10000, recordStore.bankBalance);
      });
