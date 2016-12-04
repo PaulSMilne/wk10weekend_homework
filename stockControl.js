@@ -17,13 +17,23 @@ vinylFrontier.addRecords(record2, 4);
 vinylFrontier.addRecords(record3, 2);
 vinylFrontier.addRecord(record4);
 
-console.log(vinylFrontier.name)
+console.log(vinylFrontier.name + ", " + vinylFrontier.city + " Branch")
 
 console.log("\nCurrent stock:\n")
 var stock = vinylFrontier.getInventory();
 
 console.log(stock);
 
-console.log("\n\nBalance in current account: £" + vinylFrontier.bankBalance);
+console.log(vinylFrontier.financialReport());
 
+console.log("")
 
+vinylFrontier.sellRecord(record1);
+vinylFrontier.sellRecord(record4);
+vinylFrontier.sellRecord(record2);
+vinylFrontier.sellRecord(record3);
+vinylFrontier.sellRecord(record4);
+
+console.log("\nCurrent stock:\n");
+console.log(vinylFrontier.getInventory());
+console.log(vinylFrontier.financialReport());

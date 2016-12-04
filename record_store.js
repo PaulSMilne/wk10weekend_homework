@@ -30,9 +30,28 @@ RecordStore.prototype = {
      }, 
 
      sellRecord: function(record){
-          var recordIndex = this.inventory.indexOf(record);
-          this.inventory.splice(recordIndex,1);
-          this.bankBalance += record.price;
+          var inStock = this.inventory.indexOf(record);
+          if (inStock != -1){
+               var recordIndex = this.inventory.indexOf(record);
+               this.inventory.splice(recordIndex,1);
+               this.bankBalance += record.price;
+               console.log("1 copy of " + record.name + " sold.");
+          } else {
+               console.log("Sorry, " + record.name + " is out of stock.")
+          };
+     },
+
+     getStockValue: function(){
+          var sum = 0;
+          for (record of this.inventory){
+               sum += record.price;
+          }
+          return sum;
+     },
+
+     financialReport: function(){
+          var stockValue = this.getStockValue();
+          return "\nFinancial Report:\nBalance in Current Account: " + this.bankBalance + "\nTotal value of stock: " + stockValue;
      }
 }
 

@@ -60,11 +60,18 @@ describe('Record Store', function(){
           assert.equal(10010, recordStore.bankBalance);
      });
 
+     it('can get value of the stock', function(){
+          recordStore.addRecords(AreYouExperienced, 3);
+          recordStore.addRecords(BloodOnTheTracks, 5);
+          var stockValue = recordStore.getStockValue();
+          assert.equal(110, stockValue);
+     })
+
      it('says how much money is in the bank when financial report is called', function(){
           recordStore.addRecord(AreYouExperienced);
           recordStore.sellRecord(AreYouExperienced);
           var report = recordStore.financialReport();
-          assert.equal ("Balance in Current Account: 10010", report);
+          assert.equal ("\nFinancial Report:\nBalance in Current Account: 10010\nTotal value of stock: 0", report);
      })
 })
 
