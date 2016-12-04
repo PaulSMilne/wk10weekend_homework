@@ -14,6 +14,14 @@ RecordStore.prototype = {
           this.bankBalance -= record.price/2;
      },
 
+     addRecords: function(record, number){
+          count = 0;
+          while (count < number){
+               this.addRecord(record);
+               count ++;
+          }
+     },
+
      getInventory: function(){
           var stock = _.countBy(this.inventory, function(record) {
            return record.name;

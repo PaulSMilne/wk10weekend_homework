@@ -24,6 +24,11 @@ describe('Record Store', function(){
           assert.equal(1, recordStore.inventory.length);
      });
 
+     it('can add many records', function(){
+          recordStore.addRecords(BloodOnTheTracks, 15);
+          assert.equal(15, recordStore.inventory.length);
+     })
+
      it('has a bank balance', function(){
           assert.equal(10000, recordStore.bankBalance);
      });
@@ -49,11 +54,18 @@ describe('Record Store', function(){
           assert.equal(0, recordStore.inventory.length);
      });
 
-     it('increases the store bank balance', function(){
+     it('increases the store bank balance by price of record when record sold', function(){
           recordStore.addRecord(AreYouExperienced);
           recordStore.sellRecord(AreYouExperienced);
           assert.equal(10010, recordStore.bankBalance);
      });
+
+     it('says how much money is in the bank when financial report is called', function(){
+          recordStore.addRecord(AreYouExperienced);
+          recordStore.sellRecord(AreYouExperienced);
+          var report = recordStore.financialReport();
+          assert.equal ("Balance in Current Account: 10010", report);
+     })
 })
 
      
