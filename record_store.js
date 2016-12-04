@@ -8,6 +8,7 @@ var RecordStore = function(name, city){
 }
 
 RecordStore.prototype = {
+
      addRecord: function(record){
           this.inventory.push(record);
           this.bankBalance -= record.price/2;
@@ -18,7 +19,13 @@ RecordStore.prototype = {
            return record.name;
           })        
      return stock;
-     } 
+     }, 
+
+     sellRecord: function(record){
+          var recordIndex = this.inventory.indexOf(record);
+          this.inventory.splice(recordIndex,1);
+          this.bankBalance += record.price;
+     }
 }
 
 module.exports = RecordStore;

@@ -31,13 +31,28 @@ describe('Record Store', function(){
      it('decreases bank balance by the wholesale price of the record: 1/2 the retail price.', function(){
           recordStore.addRecord(AreYouExperienced);
           assert.equal(9990, recordStore.bankBalance);
-     })
+     });
+
      it('can display inventory', function(){
           recordStore.addRecord(AreYouExperienced);
           recordStore.addRecord(AreYouExperienced);
           recordStore.addRecord(BloodOnTheTracks);
           var inventory = recordStore.getInventory();
           assert.deepEqual({ 'Are You Experienced': 2, 'Blood on the Tracks': 1 }, inventory);
+     });
+
+
+     it('removes the item from stock when sold', function(){
+          recordStore.addRecord(AreYouExperienced);
+          assert.equal(1, recordStore.inventory.length);
+          recordStore.sellRecord(AreYouExperienced);
+          assert.equal(0, recordStore.inventory.length);
+     });
+
+     it('increases the store bank balance', function(){
+          recordStore.addRecord(AreYouExperienced);
+          recordStore.sellRecord(AreYouExperienced);
+          assert.equal(10010, recordStore.bankBalance);
      });
 })
 
