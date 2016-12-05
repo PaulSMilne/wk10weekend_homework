@@ -12,13 +12,20 @@ RecordStore.prototype = {
      addRecord: function(record){
           this.inventory.push(record);
           this.bankBalance -= record.price/2;
+          console.log("Added 1 copy of " + record.name + " to stock.")
      },
 
      addRecords: function(record, number){
           count = 0;
           while (count < number){
-               this.addRecord(record);
+               this.inventory.push(record);
+               this.bankBalance -= record.price/2;
                count ++;
+          }
+          if (number > 1) {
+               console.log("Added " + number + " copies of " + record.name + " to stock.")
+          } else {
+               console.log("Added 1 copy of " + record.name + " to stock.")
           }
      },
 
@@ -52,7 +59,7 @@ RecordStore.prototype = {
 
      financialReport: function(){
           var stockValue = this.getStockValue();
-          return "\nFinancial Report:\nBalance in Current Account: " + this.bankBalance + "\nTotal value of stock: " + stockValue;
+          return "\nFinancial Report:\nBalance in Current Account: " + this.bankBalance + "\nTotal value of stock: " + stockValue + "\n";
      }
 }
 

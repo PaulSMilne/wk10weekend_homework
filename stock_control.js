@@ -12,12 +12,12 @@ var record4 = new Record("Jimi Hendrix", "Are You Experienced", 40)
 
 //write add stock function using for loop as per Cookie's advice
 
+console.log(vinylFrontier.name + ", " + vinylFrontier.city + " Branch\n")
+
 vinylFrontier.addRecords(record1, 3);
 vinylFrontier.addRecords(record2, 4);
 vinylFrontier.addRecords(record3, 2);
 vinylFrontier.addRecord(record4);
-
-console.log(vinylFrontier.name + ", " + vinylFrontier.city + " Branch")
 
 console.log("\nCurrent stock:\n")
 var stock = vinylFrontier.getInventory();
@@ -37,3 +37,20 @@ vinylFrontier.sellRecord(record4);
 console.log("\nCurrent stock:\n");
 console.log(vinylFrontier.getInventory());
 console.log(vinylFrontier.financialReport());
+
+vinylFrontier.addRecords(record4, 3);
+
+vinylFrontier.sellRecord(record4);
+
+console.log("\nCurrent stock:\n");
+console.log(vinylFrontier.getInventory());
+console.log(vinylFrontier.financialReport());
+
+vinylFrontier.sellRecord(record2);
+vinylFrontier.sellRecord(record3);
+
+console.log("\nCurrent stock:\n");
+console.log(vinylFrontier.getInventory());
+console.log(vinylFrontier.financialReport());
+
+vinylFrontier.sellRecord(record3);
