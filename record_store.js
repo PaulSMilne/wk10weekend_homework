@@ -23,7 +23,8 @@ RecordStore.prototype = {
      },
 
      getInventory: function(){
-          var stock = _.countBy(this.inventory, function(record) {
+          var stock = _.countBy(this.inventory, function(record) { 
+          //_.countBy is from the underscore library
            return record.name;
           })        
      return stock;
